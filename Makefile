@@ -6,7 +6,7 @@ VENV := .venv
 PY := $(VENV)/bin/python
 PIP := $(VENV)/bin/pip
 
-.PHONY: setup test generate-cases run upload-dataset eval clean
+.PHONY: setup test generate-cases verify-labels run upload-dataset eval clean
 
 setup: ## Create the virtualenv and install pinned dependencies
 	$(PYTHON) -m venv $(VENV)
@@ -18,6 +18,9 @@ test: ## Run unit tests
 
 generate-cases: ## Generate synthetic case fixtures (P1)
 	$(PY) cases/generate.py
+
+verify-labels: ## Re-derive and check case labels against policy rules
+	$(PY) cases/verify_labels.py
 
 run: ## Assess one case: make run CASE=case-001 (P3)
 	$(PY) -m src.cli --case $(CASE)
