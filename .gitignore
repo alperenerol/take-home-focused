@@ -19,3 +19,6 @@ dist/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+
+# Runtime artifacts (agent submissions, namespaced by run id)
+submitted/
