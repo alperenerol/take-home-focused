@@ -22,3 +22,6 @@ dist/
 
 # Runtime artifacts (agent submissions, namespaced by run id)
 submitted/
+
+# Eval artifacts (per-run records, judge caches)
+evals/results/

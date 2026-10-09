@@ -28,8 +28,8 @@ run: ## Assess one case: make run CASE=case-001 RUN=dev-smoke
 upload-dataset: ## Upload the eval dataset to LangSmith (P4)
 	$(PY) -m evals.upload_dataset
 
-eval: ## Run the LangSmith evaluation (P4+)
-	$(PY) -m evals.run_eval
+eval: ## Run the evaluation: make eval RUN_ID=baseline-v0 [CASES=case-001,case-002]
+	$(PY) -m evals.run_eval --run-id $(RUN_ID) $(if $(CASES),--cases $(CASES),)
 
 clean: ## Remove caches
 	find . -type d -name __pycache__ -prune -exec rm -rf {} +
