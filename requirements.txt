@@ -1,0 +1,10 @@
+# Direct dependencies, pinned to a tested set (2026-10-09).
+# langgraph / openai / mcp arrive transitively via these.
+# Python >= 3.10 required by LangChain 1.x (developed on 3.12).
+langchain[mcp]==1.4.4
+langchain-openai==1.7.0
+langsmith==0.14.6
+fastmcp==4.1.0
+pydantic==2.14.0
+python-dotenv==1.2.4
+pytest==9.1.1
