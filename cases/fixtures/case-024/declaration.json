@@ -1,0 +1,27 @@
+{
+  "case_id": "case-024",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Dev Patel",
+    "date_of_birth": "1992-02-29",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Sandalwood Foods Ltd",
+    "role": "Buying Assistant",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 46800
+  },
+  "property": {
+    "address": "11 Loom Street, Stafford ST16 5FW",
+    "value_gbp": 300000
+  },
+  "loan": {
+    "amount_gbp": 200000,
+    "product_rate_pct": 4.3,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 250
+  }
+}

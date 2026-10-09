@@ -1,0 +1,31 @@
+{
+  "case_id": "case-024",
+  "title": "Precedence - missing item beats a flagged exception",
+  "category": "precedence",
+  "difficulty": "boundary",
+  "assessment_date": "2026-10-01",
+  "expected_status": "ADDITIONAL_DOCUMENTS_REQUIRED",
+  "expected_missing_items": [
+    "employer_letter"
+  ],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "ACTION_REQUIRED",
+    "CHK-INC-EMPLOYED": "ACTION_REQUIRED",
+    "CHK-CREDIT": "EXCEPTION_FLAGGED",
+    "CHK-INC-CONSISTENCY": "PASSED",
+    "CHK-AFFORDABILITY": "PASSED",
+    "CHK-LTV": "PASSED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [
+    "POL-CREDIT-01",
+    "POL-STAT-01"
+  ],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "mortgage_calculator",
+    "submit_dossier"
+  ],
+  "notes": "Missing employer letter AND a satisfied CCJ within 24 months. Status is ADDITIONAL_DOCUMENTS_REQUIRED (missing takes precedence, POL-STAT-01 R5); the credit exception stays recorded in the dossier."
+}

@@ -1,0 +1,27 @@
+{
+  "case_id": "case-012",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Sian Prosser",
+    "date_of_birth": "1984-11-27",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Dovecote Care Homes",
+    "role": "Deputy Manager",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 50400
+  },
+  "property": {
+    "address": "31 Marigold Drive, Stafford ST16 6TT",
+    "value_gbp": 330000
+  },
+  "loan": {
+    "amount_gbp": 230000,
+    "product_rate_pct": 4.5,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 200
+  }
+}

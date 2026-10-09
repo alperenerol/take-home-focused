@@ -1,0 +1,29 @@
+{
+  "case_id": "case-022",
+  "title": "Employer letter contradicts payslips on salary",
+  "category": "contradiction",
+  "difficulty": "failure",
+  "assessment_date": "2026-10-01",
+  "expected_status": "EXPERT_MANUAL_REVIEW_REQUIRED",
+  "expected_missing_items": [],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "PASSED",
+    "CHK-INC-EMPLOYED": "EXCEPTION_FLAGGED",
+    "CHK-INC-CONSISTENCY": "PASSED",
+    "CHK-CREDIT": "PASSED",
+    "CHK-LTV": "PASSED",
+    "CHK-AFFORDABILITY": "PASSED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [
+    "POL-INC-01",
+    "POL-EXC-01"
+  ],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "mortgage_calculator",
+    "submit_dossier"
+  ],
+  "notes": "Letter states 58,000 vs payslip-implied 51,960 (11.62% > 5.00%): contradictory documents, exception, expert referral. Declared 52,000 vs evidenced 51,960 is within tolerance, so the consistency check itself passes."
+}

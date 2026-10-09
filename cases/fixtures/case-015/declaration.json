@@ -1,0 +1,27 @@
+{
+  "case_id": "case-015",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Helena Voss",
+    "date_of_birth": "1984-03-25",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Mercy General Hospital",
+    "role": "Nurse Practitioner",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 60000
+  },
+  "property": {
+    "address": "2 Chantry Place, Stafford ST16 2QL",
+    "value_gbp": 300000
+  },
+  "loan": {
+    "amount_gbp": 270000,
+    "product_rate_pct": 4.4,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 0
+  }
+}

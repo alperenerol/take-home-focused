@@ -1,0 +1,28 @@
+{
+  "case_id": "case-021",
+  "title": "Term ends after the 75th birthday",
+  "category": "term-age",
+  "difficulty": "failure",
+  "assessment_date": "2026-10-01",
+  "expected_status": "EXPERT_MANUAL_REVIEW_REQUIRED",
+  "expected_missing_items": [],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "PASSED",
+    "CHK-INC-EMPLOYED": "PASSED",
+    "CHK-INC-CONSISTENCY": "PASSED",
+    "CHK-CREDIT": "PASSED",
+    "CHK-LTV": "PASSED",
+    "CHK-AFFORDABILITY": "PASSED",
+    "CHK-TERM-AGE": "EXCEPTION_FLAGGED"
+  },
+  "key_citations": [
+    "POL-AGE-01"
+  ],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "mortgage_calculator",
+    "submit_dossier"
+  ],
+  "notes": "Term 132 months ends 2037-10-01, applicant turns 75 on 2037-03-15: term end age ~75.5 > 75. Affordability passes; the only exception is the term-age check."
+}

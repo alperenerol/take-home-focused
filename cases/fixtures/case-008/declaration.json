@@ -1,0 +1,26 @@
+{
+  "case_id": "case-008",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Ruth Halloran",
+    "date_of_birth": "1988-02-10",
+    "employment_type": "self-employed"
+  },
+  "self_employment": {
+    "business_name": "Halloran Ceramics",
+    "business_start_date": "2016-03-01",
+    "declared_annual_income_gbp": 60000
+  },
+  "property": {
+    "address": "7 Pottery Yard, Stafford ST16 5RD",
+    "value_gbp": 300000
+  },
+  "loan": {
+    "amount_gbp": 210000,
+    "product_rate_pct": 4.6,
+    "term_months": 264
+  },
+  "commitments": {
+    "monthly_total_gbp": 300
+  }
+}

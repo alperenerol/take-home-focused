@@ -1,0 +1,27 @@
+{
+  "case_id": "case-002",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Maria Osei",
+    "date_of_birth": "1985-07-30",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Redwood Media Group",
+    "role": "Marketing Manager",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 45000
+  },
+  "property": {
+    "address": "3 Orchard Row, Stafford ST17 4LN",
+    "value_gbp": 300000
+  },
+  "loan": {
+    "amount_gbp": 180000,
+    "product_rate_pct": 4.25,
+    "term_months": 240
+  },
+  "commitments": {
+    "monthly_total_gbp": 150
+  }
+}

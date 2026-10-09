@@ -1,0 +1,27 @@
+{
+  "case_id": "case-019",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Yasmin Aziz",
+    "date_of_birth": "1985-10-11",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Pennine Pharma Ltd",
+    "role": "QA Scientist",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 60000
+  },
+  "property": {
+    "address": "29 Saffron Way, Stafford ST16 7BG",
+    "value_gbp": 340000
+  },
+  "loan": {
+    "amount_gbp": 244000,
+    "product_rate_pct": 5.5,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 480
+  }
+}

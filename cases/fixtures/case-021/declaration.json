@@ -1,0 +1,27 @@
+{
+  "case_id": "case-021",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Margaret Ellis",
+    "date_of_birth": "1962-03-15",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Ellis & Co Accountancy",
+    "role": "Senior Bookkeeper",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 60000
+  },
+  "property": {
+    "address": "1 Beechwood Gardens, Stafford ST16 9PL",
+    "value_gbp": 300000
+  },
+  "loan": {
+    "amount_gbp": 200000,
+    "product_rate_pct": 4.5,
+    "term_months": 132
+  },
+  "commitments": {
+    "monthly_total_gbp": 0
+  }
+}

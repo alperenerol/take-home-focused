@@ -1,0 +1,27 @@
+{
+  "case_id": "case-005",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Daniel Okafor",
+    "date_of_birth": "1989-02-14",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Bramford Logistics Ltd",
+    "role": "Operations Lead",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 48000
+  },
+  "property": {
+    "address": "41 Millrace Walk, Stafford ST16 1AA",
+    "value_gbp": 320000
+  },
+  "loan": {
+    "amount_gbp": 220000,
+    "product_rate_pct": 4.5,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 150
+  }
+}

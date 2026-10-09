@@ -1,0 +1,27 @@
+{
+  "case_id": "case-013",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Keith Danvers",
+    "date_of_birth": "1988-12-01",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Ironside Tooling Ltd",
+    "role": "Production Supervisor",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 47400
+  },
+  "property": {
+    "address": "12 Kiln Lane, Stafford ST18 1WW",
+    "value_gbp": 310000
+  },
+  "loan": {
+    "amount_gbp": 210000,
+    "product_rate_pct": 4.4,
+    "term_months": 288
+  },
+  "commitments": {
+    "monthly_total_gbp": 200
+  }
+}

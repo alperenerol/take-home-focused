@@ -1,0 +1,27 @@
+{
+  "case_id": "case-022",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Jack Sorenson",
+    "date_of_birth": "1989-05-05",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Tarnfield Motors Ltd",
+    "role": "Workshop Controller",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 52000
+  },
+  "property": {
+    "address": "36 Rugby Road, Stafford ST17 8KX",
+    "value_gbp": 280000
+  },
+  "loan": {
+    "amount_gbp": 190000,
+    "product_rate_pct": 4.4,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 250
+  }
+}

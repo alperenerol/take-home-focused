@@ -1,0 +1,24 @@
+{
+  "case_id": "case-009",
+  "title": "Self-employed startup - fewer than three tax years of history",
+  "category": "self-employed",
+  "difficulty": "failure",
+  "assessment_date": "2026-10-01",
+  "expected_status": "EXPERT_MANUAL_REVIEW_REQUIRED",
+  "expected_missing_items": [],
+  "critical_checks": {
+    "CHK-INC-SELFEMPLOYED": "EXCEPTION_FLAGGED",
+    "CHK-LTV": "PASSED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [
+    "POL-SE-01",
+    "POL-EXC-01"
+  ],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "submit_dossier"
+  ],
+  "notes": "Business commenced 2024-09-01: fewer than three tax years exist, so ALL possible years are provided. This is an expert referral, NOT a missing-items case - expected_missing_items must be empty."
+}

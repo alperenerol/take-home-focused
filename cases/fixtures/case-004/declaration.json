@@ -1,0 +1,27 @@
+{
+  "case_id": "case-004",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Priya Nair",
+    "date_of_birth": "1987-11-02",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Meridian Health Trust",
+    "role": "Radiographer",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 49200
+  },
+  "property": {
+    "address": "9 Beech Lane, Stafford ST18 0QP",
+    "value_gbp": 340000
+  },
+  "loan": {
+    "amount_gbp": 240000,
+    "product_rate_pct": 4.6,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 50
+  }
+}

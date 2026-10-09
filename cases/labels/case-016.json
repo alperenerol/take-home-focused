@@ -1,0 +1,29 @@
+{
+  "case_id": "case-016",
+  "title": "LTV 86 percent - higher-LTV tightening makes stressed DTI fail",
+  "category": "ltv",
+  "difficulty": "boundary",
+  "assessment_date": "2026-10-01",
+  "expected_status": "EXPERT_MANUAL_REVIEW_REQUIRED",
+  "expected_missing_items": [],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "PASSED",
+    "CHK-INC-EMPLOYED": "PASSED",
+    "CHK-INC-CONSISTENCY": "PASSED",
+    "CHK-CREDIT": "PASSED",
+    "CHK-LTV": "PASSED",
+    "CHK-AFFORDABILITY": "EXCEPTION_FLAGGED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [
+    "POL-AFF-01",
+    "POL-LTV-01"
+  ],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "mortgage_calculator",
+    "submit_dossier"
+  ],
+  "notes": "LTV 86.00 (band B, no LTV flag) but LTV > 85 tightens the stressed limit to 40: stressed DTI 42.47 > 40. DTI 36.16 passes. Exception from the affordability check."
+}

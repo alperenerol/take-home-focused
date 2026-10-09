@@ -1,0 +1,27 @@
+{
+  "case_id": "case-017",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Nadia Rahman",
+    "date_of_birth": "1982-05-30",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Clifford & Marsh LLP",
+    "role": "Solicitor",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 72000
+  },
+  "property": {
+    "address": "8 Bracken Hill, Stafford ST17 5RR",
+    "value_gbp": 300000
+  },
+  "loan": {
+    "amount_gbp": 285000,
+    "product_rate_pct": 4.9,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 300
+  }
+}

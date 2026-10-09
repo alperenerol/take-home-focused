@@ -1,0 +1,28 @@
+{
+  "case_id": "case-012",
+  "title": "Recent credit markers - satisfied CCJ within 24 months plus recent default",
+  "category": "credit",
+  "difficulty": "failure",
+  "assessment_date": "2026-10-01",
+  "expected_status": "EXPERT_MANUAL_REVIEW_REQUIRED",
+  "expected_missing_items": [],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "PASSED",
+    "CHK-INC-EMPLOYED": "PASSED",
+    "CHK-INC-CONSISTENCY": "PASSED",
+    "CHK-CREDIT": "EXCEPTION_FLAGGED",
+    "CHK-LTV": "PASSED",
+    "CHK-AFFORDABILITY": "PASSED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [
+    "POL-CREDIT-01"
+  ],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "mortgage_calculator",
+    "submit_dossier"
+  ],
+  "notes": "Satisfied CCJ registered 2025-05-10 (16 months) and default 2025-11-15 (10 months): both within thresholds, both flagged."
+}

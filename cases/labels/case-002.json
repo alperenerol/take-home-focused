@@ -1,0 +1,27 @@
+{
+  "case_id": "case-002",
+  "title": "Clean employed case with noise documents and old credit markers",
+  "category": "clean-with-noise",
+  "difficulty": "clean",
+  "assessment_date": "2026-10-01",
+  "expected_status": "READY_FOR_UNDERWRITING",
+  "expected_missing_items": [],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "PASSED",
+    "CHK-DOC-RECENCY": "PASSED",
+    "CHK-INC-EMPLOYED": "PASSED",
+    "CHK-INC-CONSISTENCY": "PASSED",
+    "CHK-CREDIT": "PASSED",
+    "CHK-LTV": "PASSED",
+    "CHK-AFFORDABILITY": "PASSED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "mortgage_calculator",
+    "submit_dossier"
+  ],
+  "notes": "Noise docs and the extra old payslip must be ignored; the extra payslip is NOT part of the required three most recent. Old credit markers (CCJ 30m, default 47m) are note-only. LTV 60.00; DTI 33.72; stressed DTI 41.21."
+}

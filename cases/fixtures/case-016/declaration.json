@@ -1,0 +1,27 @@
+{
+  "case_id": "case-016",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Peter Lindqvist",
+    "date_of_birth": "1983-08-14",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Onega Systems Ltd",
+    "role": "Software Engineer",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 60000
+  },
+  "property": {
+    "address": "16 Harbour Quay, Stafford ST16 2NE",
+    "value_gbp": 300000
+  },
+  "loan": {
+    "amount_gbp": 258000,
+    "product_rate_pct": 5.0,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 300
+  }
+}

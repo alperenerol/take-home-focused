@@ -1,0 +1,27 @@
+{
+  "case_id": "case-003",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Tom Bramley",
+    "date_of_birth": "1991-01-20",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Cavendish Legal Services",
+    "role": "Paralegal",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 48000
+  },
+  "property": {
+    "address": "27 Ashfield Road, Stafford ST16 3PR",
+    "value_gbp": 320000
+  },
+  "loan": {
+    "amount_gbp": 220000,
+    "product_rate_pct": 4.5,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 150
+  }
+}

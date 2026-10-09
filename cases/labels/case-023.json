@@ -1,0 +1,30 @@
+{
+  "case_id": "case-023",
+  "title": "Malformed declaration - income figure not usable",
+  "category": "malformed",
+  "difficulty": "failure",
+  "assessment_date": "2026-10-01",
+  "expected_status": "ADDITIONAL_DOCUMENTS_REQUIRED",
+  "expected_missing_items": [
+    "declaration_correction"
+  ],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "ACTION_REQUIRED",
+    "CHK-INC-CONSISTENCY": "ACTION_REQUIRED",
+    "CHK-INC-EMPLOYED": "PASSED",
+    "CHK-AFFORDABILITY": "PASSED",
+    "CHK-CREDIT": "PASSED",
+    "CHK-LTV": "PASSED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [
+    "POL-DOC-01"
+  ],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "mortgage_calculator",
+    "submit_dossier"
+  ],
+  "notes": "declared_annual_income_gbp is null: declaration_correction required; the consistency check cannot run. Affordability uses EVIDENCED income and still passes - do not over-cascade."
+}

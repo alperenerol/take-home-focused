@@ -1,0 +1,27 @@
+{
+  "case_id": "case-007",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "George Aldridge",
+    "date_of_birth": "1990-06-21",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Stanton Aerospace Ltd",
+    "role": "Systems Engineer",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 48000
+  },
+  "property": {
+    "address": "52 Copperbeech Avenue, Stafford ST16 4ZX",
+    "value_gbp": 320000
+  },
+  "loan": {
+    "amount_gbp": 220000,
+    "product_rate_pct": 4.5,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 150
+  }
+}

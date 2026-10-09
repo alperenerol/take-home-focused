@@ -1,0 +1,27 @@
+{
+  "case_id": "case-010",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Charlotte Reed",
+    "date_of_birth": "1990-03-30",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Pinehurst Consulting",
+    "role": "Business Analyst",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 50400
+  },
+  "property": {
+    "address": "88 Sandpiper Court, Stafford ST16 8JJ",
+    "value_gbp": 320000
+  },
+  "loan": {
+    "amount_gbp": 220000,
+    "product_rate_pct": 4.5,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 150
+  }
+}

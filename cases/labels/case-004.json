@@ -1,0 +1,32 @@
+{
+  "case_id": "case-004",
+  "title": "Missing employer letter and credit report",
+  "category": "missing-evidence",
+  "difficulty": "failure",
+  "assessment_date": "2026-10-01",
+  "expected_status": "ADDITIONAL_DOCUMENTS_REQUIRED",
+  "expected_missing_items": [
+    "employer_letter",
+    "credit_report"
+  ],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "ACTION_REQUIRED",
+    "CHK-INC-EMPLOYED": "ACTION_REQUIRED",
+    "CHK-CREDIT": "ACTION_REQUIRED",
+    "CHK-INC-CONSISTENCY": "PASSED",
+    "CHK-AFFORDABILITY": "PASSED",
+    "CHK-LTV": "PASSED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [
+    "POL-DOC-01",
+    "POL-CREDIT-01"
+  ],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "mortgage_calculator",
+    "submit_dossier"
+  ],
+  "notes": "Two missing items; income evidence complete so consistency and affordability stay computable and pass."
+}

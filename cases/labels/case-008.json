@@ -1,0 +1,30 @@
+{
+  "case_id": "case-008",
+  "title": "Self-employed - only two of three tax years provided, business established",
+  "category": "self-employed",
+  "difficulty": "failure",
+  "assessment_date": "2026-10-01",
+  "expected_status": "ADDITIONAL_DOCUMENTS_REQUIRED",
+  "expected_missing_items": [
+    "sa302_year_3",
+    "tax_year_overview_3"
+  ],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "ACTION_REQUIRED",
+    "CHK-INC-SELFEMPLOYED": "ACTION_REQUIRED",
+    "CHK-INC-CONSISTENCY": "ACTION_REQUIRED",
+    "CHK-AFFORDABILITY": "ACTION_REQUIRED",
+    "CHK-CREDIT": "PASSED",
+    "CHK-LTV": "PASSED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [
+    "POL-SE-01"
+  ],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "submit_dossier"
+  ],
+  "notes": "2023/24 SA302 and overview absent (business started 2016, so the missing years are required). Three-year average cannot be computed; do not average two years."
+}

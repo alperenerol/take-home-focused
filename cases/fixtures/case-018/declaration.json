@@ -1,0 +1,27 @@
+{
+  "case_id": "case-018",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Colin Trueman",
+    "date_of_birth": "1982-05-30",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Severn Rail Contractors",
+    "role": "Project Manager",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 72000
+  },
+  "property": {
+    "address": "77 Old Wharf Road, Stafford ST16 3HE",
+    "value_gbp": 300000
+  },
+  "loan": {
+    "amount_gbp": 286500,
+    "product_rate_pct": 4.9,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 300
+  }
+}

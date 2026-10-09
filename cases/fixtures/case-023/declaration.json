@@ -1,0 +1,27 @@
+{
+  "case_id": "case-023",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Ana Ferreira",
+    "date_of_birth": "1988-07-07",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Quayside Interiors Ltd",
+    "role": "Project Coordinator",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": null
+  },
+  "property": {
+    "address": "20 Old Tannery Row, Stafford ST16 1NX",
+    "value_gbp": 340000
+  },
+  "loan": {
+    "amount_gbp": 240000,
+    "product_rate_pct": 4.6,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 250
+  }
+}
