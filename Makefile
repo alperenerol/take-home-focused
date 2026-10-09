@@ -22,8 +22,8 @@ generate-cases: ## Generate synthetic case fixtures (P1)
 verify-labels: ## Re-derive and check case labels against policy rules
 	$(PY) cases/verify_labels.py
 
-run: ## Assess one case: make run CASE=case-001 (P3)
-	$(PY) -m src.cli --case $(CASE)
+run: ## Assess one case: make run CASE=case-001 RUN=dev-smoke
+	$(PY) -m src.cli --case $(CASE) --run-id $(or $(RUN),local)
 
 upload-dataset: ## Upload the eval dataset to LangSmith (P4)
 	$(PY) -m evals.upload_dataset

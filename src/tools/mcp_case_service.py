@@ -24,9 +24,31 @@ from pathlib import Path
 from fastmcp.client.transports import PythonStdioTransport
 from langchain_core.tools import BaseTool
 from langchain.mcp import MCPAdapter
+from pydantic import BaseModel, Field
+
+from src.schemas import Dossier
 
 CASE_SERVICE_SERVER = Path(__file__).resolve().parents[1] / "mcp_server" / "case_service.py"
 REQUIRED_TOOLS = ("get_case_files", "submit_dossier")
+
+
+class GetCaseFilesArgs(BaseModel):
+    """Arguments for get_case_files."""
+
+    case_id: str = Field(description="The case id, e.g. 'case-001'.")
+
+
+class SubmitDossierArgs(BaseModel):
+    """Arguments for submit_dossier: the case id and the complete dossier."""
+
+    case_id: str = Field(description="The case id, e.g. 'case-001'.")
+    dossier: Dossier = Field(description="The complete assessment dossier to submit.")
+
+
+ARG_MODELS: dict[str, type[BaseModel]] = {
+    "get_case_files": GetCaseFilesArgs,
+    "submit_dossier": SubmitDossierArgs,
+}
 
 
 def case_service_transport(server_path: Path | None = None) -> PythonStdioTransport:
@@ -39,7 +61,15 @@ def case_service_transport(server_path: Path | None = None) -> PythonStdioTransp
 
 
 async def get_case_service_tools(server_path: Path | None = None) -> list[BaseTool]:
-    """Discover the case-service MCP tools as LangChain tools."""
+    """Discover the case-service MCP tools as LangChain tools.
+
+    Each tool's argument schema is replaced with an explicit Pydantic model. Reason:
+    create_agent binds OpenAI-compatible tools with strict=True, and under strict the
+    converter degrades an open `dict[str, Any]` argument to a property-less closed
+    object - the dossier parameter became unusable and the API rejected the tool.
+    With the full Dossier structure nested in the schema, the strict conversion is
+    valid and the model receives the dossier's entire shape inside the tool call.
+    """
     adapter = MCPAdapter(case_service_transport(server_path))
     tools = await adapter.list_tools()
     names = {t.name for t in tools}
@@ -48,4 +78,7 @@ async def get_case_service_tools(server_path: Path | None = None) -> list[BaseTo
         raise RuntimeError(
             f"case-service is missing expected tools {missing}; server exposed {sorted(names)}"
         )
+    for tool in tools:
+        if tool.name in ARG_MODELS:
+            tool.args_schema = ARG_MODELS[tool.name]
     return tools
