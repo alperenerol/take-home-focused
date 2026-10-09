@@ -63,6 +63,9 @@ def test_export_pick_and_compare(tmp_path):
     assert "## Judge reference (do not read before labelling)" in text
     items = json.loads((root / "demo" / "calibration_items.json").read_text(encoding="utf-8"))
     assert set(items) == set(chosen)
+    # the judge-flagged case (boundary, not grounded) leads the sheet
+    flagged = next(cid for cid, v in verdicts.items() if not v["grounded"])
+    assert items[0] == flagged
 
     # unfilled template must NOT be parsed as a call
     assert calibration.CALL_RE.findall(text) == []

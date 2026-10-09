@@ -26,15 +26,21 @@ CALL_BLANK = "**Your call:** _yes or no; 1-5; note_"
 
 
 def pick_items(run_id: str, n: int = 10, root: Path = RESULTS_DIR) -> list[str]:
-    """Deterministic selection: round-robin across clean/boundary/failure, by case id."""
+    """Deterministic selection, most informative first: judge-flagged items (not grounded
+    or score <= 4) lead; the rest round-robin across clean/boundary/failure, by case id."""
     meta = load_label_meta()
     run = load_run(run_id, root)
+    flagged: list[str] = []
     groups: dict[str, list[str]] = {"clean": [], "boundary": [], "failure": []}
     for case_id, item in sorted(run.items()):
         if item["judge"] is None or case_id not in meta:
             continue
-        groups.setdefault(meta[case_id]["metadata"]["difficulty"], []).append(case_id)
-    picked: list[str] = []
+        judge = item["judge"]
+        if not judge["grounded"] or judge["score"] <= 4:
+            flagged.append(case_id)
+        else:
+            groups.setdefault(meta[case_id]["metadata"]["difficulty"], []).append(case_id)
+    picked: list[str] = flagged[:n]
     while len(picked) < n and any(groups.values()):
         for name in list(groups):
             if groups[name] and len(picked) < n:
