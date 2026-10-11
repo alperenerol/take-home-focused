@@ -101,6 +101,25 @@ def term_end_age_years(assessment_date: str, term_months: int, date_of_birth: st
     return r2(_d(days) / _d("365.25"))
 
 
+def term_end_age_years_days(assessment_date: str, term_months: int, date_of_birth: str) -> str:
+    """POL-AGE-01's years-and-days convention, e.g. '61 years and 172 days'.
+
+    Whole calendar years from the date of birth to the term end date, then the
+    remaining days.
+    """
+    end = term_end_date(assessment_date, term_months)
+    dob = date.fromisoformat(date_of_birth)
+    years = end.year - dob.year - (1 if (end.month, end.day) < (dob.month, dob.day) else 0)
+    try:
+        anchor = dob.replace(year=dob.year + years)
+    except ValueError:  # 29 February on a non-leap target year
+        anchor = dob.replace(year=dob.year + years, day=28)
+    days = (end - anchor).days
+    year_word = "year" if years == 1 else "years"
+    day_word = "day" if days == 1 else "days"
+    return f"{years} {year_word} and {days} {day_word}"
+
+
 def _resolve_income(
     payslip_monthly_grosses, sa302_annual_incomes, monthly_income_gbp
 ):
@@ -152,9 +171,10 @@ def mortgage_calculator(
     and monthly income used; income_variance_pct and income_within_tolerance (when
     declared income is given); dti_pct and stressed_dti_pct with their limits and
     pass verdicts (the stressed limit tightens to 40 when LTV is above 85);
-    term_end_date, term_end_age_years and term_age_within_maximum (when date_of_birth
-    and assessment_date are given); and policy_refs naming the sections the verdicts
-    come from. All money and percentage figures are strings rounded half-up to 2dp.
+    term_end_date, term_end_age_years, term_end_age_years_and_days (POL-AGE-01's
+    years-and-days convention) and term_age_within_maximum (when date_of_birth and
+    assessment_date are given); and policy_refs naming the sections the verdicts come
+    from. All money and percentage figures are strings rounded half-up to 2dp.
     """
     try:
         loan = _d(loan_amount_gbp)
@@ -214,6 +234,9 @@ def mortgage_calculator(
             end = term_end_date(assessment_date, term)
             out["term_end_date"] = end.isoformat()
             out["term_end_age_years"] = str(term_end_age_years(assessment_date, term, date_of_birth))
+            out["term_end_age_years_and_days"] = term_end_age_years_days(
+                assessment_date, term, date_of_birth
+            )
             out["term_age_within_maximum"] = term_end_age_within_max(assessment_date, term, date_of_birth)
             policy_refs.append("POL-AGE-01")
         except ValueError:

@@ -73,7 +73,7 @@ and 0 days"). Cosmetic; cheap to align.
   case-009 and case-017 at 70.4k/75.1k tokens, are failure/boundary cases).
 - No schema violations, no guardrail violations, no invalid citation ids anywhere.
 
-## v1 fix list (prompt-level; dataset, tools and corpus unchanged)
+## v1 fix list (agent-side: prompt v2 plus one calculator output field; dataset, evaluators, judge and corpus unchanged)
 
 1. POL-SE-01 R3 branching: route early-stage cases to the referral branch; never report
    unobtainable year tokens as missing; keep them out of CHK-DOC-COMPLETE (F1).
@@ -84,12 +84,26 @@ and 0 days"). Cosmetic; cheap to align.
 4. Limit failures in sections without an explicit handling sentence: state the basis in
    the rationale (rule breach -> EXCEPTION + referral, per POL-STAT-01 R6 and the pattern
    stated in POL-LTV-01 R4/R5 and POL-AGE-01 R2) (F3).
-5. Term-end age stated in years and days, matching POL-AGE-01 R1 (F4).
+5. Term-end age stated in years and days: the calculator now reports
+   `term_end_age_years_and_days` and the prompt requires it in the rationale (F4).
+
+## Calibration (human labels, 2026-10-09)
+
+Ten items were labelled blind by the human (the four judge-flagged cases lead the sheet,
+plus a difficulty spread). Result: agreement 7/10 (70%), mean absolute score delta 0.50.
+
+- case-009: both not grounded (human 2/5, harsher than the judge's 4/5) - the real defect.
+- case-014, case-019, case-023: human "yes, 5/5" vs judge "no, 4/5" - the human reads the
+  citation-scope (014/019) and presentation (023) nits as below the groundedness bar;
+  the judge applies a stricter evidence-trail standard.
+- The six clean cases: full agreement (yes/5).
+
+Interpretation: the judge is stricter than the human on citation completeness and
+formatting nits - its signal is best read as "evidence trail fully supported" rather
+than outcome correctness. The v1 citation-discipline fixes target exactly that gap; on
+014/019/023 a judge flip in v1 removes a strictness dispute, not a real error.
 
 ## Open items
 
-- Human calibration: `evals/results/baseline-v0/calibration.md` (10 items; the four
-  flagged cases lead). Label the "Your call" lines, then:
-  `python -m evals.calibration compare --run-id baseline-v0`.
 - Corpus limitation to carry into the final write-up: POL-AFF-01 failure handling (F3)
   and the credit-referral basis (F2) are implicit rather than stated.
