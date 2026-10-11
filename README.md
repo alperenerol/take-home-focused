@@ -80,7 +80,8 @@ Requires Python 3.12, an OpenAI API key, and a LangSmith API key (free tier is f
 ```bash
 cp .env.example .env             # fill OPENAI_API_KEY and LANGSMITH_API_KEY
 make setup                       # creates .venv, installs pinned requirements
-make test                        # 74 offline tests
+make test                        # 96 offline tests (+ retrieval probes, skipped without a key)
+make test-retrieval              # retrieval probes only; fails, not skips, if no embedding key
 make run CASE=case-001 RUN=demo  # assess one case (~30 seconds)
 ```
 
@@ -133,34 +134,38 @@ present; schema valid (Pydantic); status match; missing-items set match; critica
 outcome match (fraction); required tool use (fraction); citation validity (every cited
 section id exists); key citations present; READY-without-missing guardrail.
 
-### Retrieval evaluation (and why there is no nDCG / recall@k)
+### Retrieval evaluation (recall@3 as a fence, not nDCG)
 
-Retrieval is scored at both ends of the pipeline rather than as a ranking problem of its
-own:
+Retrieval is scored separately from the dossier, and deliberately as a fence rather than a
+ranking benchmark.
 
-- Upstream, `tests/test_search_policy.py` holds ten labelled probes - a natural-language
-  query plus the section it must reach - and asserts the expected section is in the top 3
-  chunks returned (the tool's default `k`). That is recall@3 over a small hand-built golden
-  set: 10/10 today, run through `make test` (it needs an embedding key; the probe is
-  skipped without one).
-- Downstream, the dossier-level evaluators carry the signal that matters operationally:
-  `citations_valid` (every cited section id exists - a fabricated citation fails) and
-  `key_citations_present` (the section the label expects is actually cited by the finished
-  dossier).
+- **Probe set** (`tests/test_search_policy.py`, 28 probes): 13 hand-written plus 15 query strings
+  taken verbatim from the agent's own `search_policy` calls in the v1/v2 traces (216 + 255 calls,
+  433 distinct strings). Every one of the 12 sections now appears in at least one probe.
+- **Metrics reported**: recall@3 **0.967** (29 of 30 expected sections inside the top 3) and MRR
+  **0.941**, asserted against floors of 0.95 and 0.88. Each probe also carries the rank its
+  expected section reached, so a ranking degradation fails the suite instead of hiding inside a
+  top-3 membership check. `make test-retrieval` runs the probes and *fails* rather than skipping
+  when no embedding key is set.
+- **Two findings it produced** (full detail in `evals/reports/retrieval-probes.md`): queries about
+  contradictory income documents reach `POL-EXC-01` only at rank 4 (hand-written probe) and rank 3
+  (trace probe), so at the tool's default k=3 the referral rule is often not returned for exactly
+  the cases that need it; and the similarity score does not separate on-topic from off-topic
+  (off-domain max 0.380 against on-topic min 0.311), so no score threshold can abstain.
+- **Downstream**, the dossier-level evaluators carry the operational signal: `citations_valid`
+  (every cited section id exists - a fabricated citation fails) and `key_citations_present` (the
+  section the label expects is actually cited by the finished dossier).
 
-Standard IR metrics are deliberately absent, and the reason is the corpus rather than the
-effort:
+The fuller IR apparatus is absent for reasons that are arithmetic rather than effort:
 
-- the corpus is 12 sections, chunked 1:1 with section ids and searched at k=3, so
-  precision@3 is already bounded at 0.25 by arithmetic alone, before any model quality is
-  measured;
-- nDCG and MRR need graded relevance judgements over a result list; at 12 chunks almost
-  every query has exactly one relevant section, so nDCG@3 collapses into the hit test
-  above and reporting it would dress a single boolean in four decimals;
-- ranking above the cut is not where the risk is: retrieval is not the deliverable. The
-  agent reads the returned text and the artefact under evaluation is the dossier, so the
-  failure mode worth measuring is whether the *right section ends up cited* - which is what
-  `key_citations_present` measures.
+- the corpus is 12 sections, chunked 1:1 with section ids and searched at k=3, so precision@3 is
+  bounded at 0.25 before any model quality is measured;
+- nDCG needs graded relevance judgements over a result list; at 12 chunks almost every query has
+  one relevant section, so nDCG@3 collapses into the rank check above;
+- graded labels and independent annotators need a relevance question to disagree about, and with a
+  1:1 chunk-to-id mapping there is none. What the probe set genuinely lacks is scale (28 probes, no
+  confidence intervals) and a query distribution independent of this agent's own phrasing - both
+  stated as limits in the report rather than papered over.
 
 Known gap, stated rather than smoothed over: nothing measures retrieval *interference* -
 whether an irrelevant chunk that does get retrieved pollutes a downstream reasoning step.
@@ -170,7 +175,7 @@ not by a metric.
 
 If the corpus grew (hundreds of chunks, no 1:1 id-to-citation mapping), the swap is:
 graded golden queries scored with recall@k / MRR / nDCG@k as evaluators beside
-`citations_valid`, plus a re-ranker once k has to be larger than 3.
+`citations_valid`, plus a re-ranker and a hybrid lexical leg once k has to be larger than 3.
 
 ### LLM judge (groundedness)
 
@@ -287,9 +292,15 @@ well inside single-digit dollars on the chosen models.
   synthetic data).
 - Retrieval is an in-memory vector store over a 12-section corpus - a deliberate
   zero-infrastructure choice that keeps citations exact; a hosted store is the swap at
-  larger scale. It is scored by a recall@3 probe and by citation-level evaluators, not by
-  nDCG / precision@k - the reasoning is in "Retrieval evaluation" above, and the one open
-  gap (retrieval interference) is stated there.
+  larger scale. It is scored by a 28-probe recall@3 fence (0.967) and by citation-level
+  evaluators, not by nDCG / precision@k - the reasoning is in "Retrieval evaluation" above.
+- The probe set surfaced a real retrieval limitation and left it visible: a query about
+  contradictory income documents reaches `POL-EXC-01` (contradictions, ambiguity and expert
+  referral) only at rank 3-4, so at the default k=3 the section carrying the referral rule is
+  often not returned for exactly the cases that need it. Candidate fixes are listed in
+  `evals/reports/retrieval-probes.md`; not fixed here, on the same document-don't-fix
+  discipline as the rest of the protocol. The other open gap (retrieval interference) is
+  stated in the same section.
 
 ## Repository layout
 
@@ -300,9 +311,10 @@ well inside single-digit dollars on the chosen models.
 - `evals/` - dataset upload, evaluators, judge, runner, summarize/diff, calibration,
   trace links; `evals/reports/` holds the committed evidence, `evals/results/` is
   local-only (git-ignored)
-- `tests/` - 74 offline tests: calculator literals + all-case label sweep, retrieval
-  quality, case-service validation, a real MCP end-to-end test, schema vocabulary sync,
-  strict-schema regression, dataset build, evaluators, judge prompt, runner plumbing
+- `tests/` - 96 offline tests: calculator literals + all-case label sweep, the 28-probe
+  retrieval set (`make test-retrieval` makes the probes mandatory), case-service validation,
+  a real MCP end-to-end test, schema vocabulary sync, strict-schema regression, dataset build,
+  evaluators, judge prompt, runner plumbing
 - `Makefile` - every common task (`make help` lists them)
 
 All data is synthetic and self-authored; the lender (Windmill Bank) is fictional. Keys

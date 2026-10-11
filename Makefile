@@ -6,7 +6,7 @@ VENV := .venv
 PY := $(VENV)/bin/python
 PIP := $(VENV)/bin/pip
 
-.PHONY: help setup test generate-cases verify-labels run upload-dataset eval clean
+.PHONY: help setup test test-retrieval generate-cases verify-labels run upload-dataset eval clean
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-16s %s\n", $$1, $$2}'
@@ -18,6 +18,9 @@ setup: ## Create the virtualenv and install pinned dependencies
 
 test: ## Run unit tests
 	$(PY) -m pytest -q
+
+test-retrieval: ## Run the retrieval probes, failing (not skipping) if no embedding key is set
+	REQUIRE_EMBEDDINGS=1 $(PY) -m pytest -q tests/test_search_policy.py
 
 generate-cases: ## Generate synthetic case fixtures (P1)
 	$(PY) cases/generate.py
