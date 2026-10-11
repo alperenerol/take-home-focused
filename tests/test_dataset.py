@@ -5,13 +5,16 @@ import json
 from evals import dataset
 from src import config
 
+# The dataset is versioned (v2 = v1's 24 cases plus the 4 adversarial cases).
+EXPECTED_CASES = 28
+
 
 def test_build_examples_covers_all_cases():
     examples = dataset.build_examples()
-    assert len(examples) == 24
+    assert len(examples) == EXPECTED_CASES
     ids = [e["inputs"]["case_id"] for e in examples]
     assert ids == sorted(ids)
-    assert len(set(ids)) == 24
+    assert len(set(ids)) == EXPECTED_CASES
 
 
 def test_examples_match_labels():
@@ -31,7 +34,7 @@ def test_examples_match_labels():
 
 def test_metadata_difficulties_are_known():
     diffs = {e["metadata"]["difficulty"] for e in dataset.build_examples()}
-    assert diffs == {"clean", "boundary", "failure"}
+    assert diffs == {"clean", "boundary", "failure", "adversarial"}
 
 
 class FakeClient:
@@ -76,8 +79,8 @@ def test_upload_force_replaces():
     assert fake.deleted == ["windmill-test"]
     assert fake.created == ["windmill-test"]
     assert fake.examples is not None
-    assert len(fake.examples) == 24
-    assert "uploaded 24 examples" in message
+    assert len(fake.examples) == EXPECTED_CASES
+    assert f"uploaded {EXPECTED_CASES} examples" in message
 
 
 def test_upload_fresh():
@@ -85,4 +88,4 @@ def test_upload_fresh():
     message = dataset.upload("windmill-test", client=fake)
     assert fake.deleted == []
     assert fake.created == ["windmill-test"]
-    assert "uploaded 24" in message
+    assert f"uploaded {EXPECTED_CASES}" in message

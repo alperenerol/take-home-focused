@@ -14,10 +14,11 @@ from langsmith import Client
 
 from src import config
 
-DATASET_NAME = "windmill-bank-cases-v1"
+DATASET_NAME = "windmill-bank-cases-v2"
 DATASET_DESCRIPTION = (
-    "Synthetic Windmill Bank mortgage cases (12 policy sections; 24 cases) with expected "
-    "dossier facts for the pre-assessment agent evaluation."
+    "Synthetic Windmill Bank mortgage cases (12 policy sections; 28 cases, including a "
+    "four-case adversarial slice) with expected dossier facts for the pre-assessment "
+    "agent evaluation. v2 supersedes v1 (24 cases); see the README results table."
 )
 
 

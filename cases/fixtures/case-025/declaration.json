@@ -1,0 +1,27 @@
+{
+  "case_id": "case-025",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Irena Kovac",
+    "date_of_birth": "1990-04-12",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Northgate Analytics Ltd",
+    "role": "Data Analyst",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 48000
+  },
+  "property": {
+    "address": "8 Marlowe Rise, Stafford ST16 3QD",
+    "value_gbp": 320000
+  },
+  "loan": {
+    "amount_gbp": 220000,
+    "product_rate_pct": 4.5,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 150
+  }
+}

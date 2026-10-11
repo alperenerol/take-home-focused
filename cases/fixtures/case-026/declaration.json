@@ -1,0 +1,27 @@
+{
+  "case_id": "case-026",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Tomasz Nowak",
+    "date_of_birth": "1993-07-19",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Larkspur Digital Ltd",
+    "role": "Product Owner",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 48000
+  },
+  "property": {
+    "address": "27 Eldon Yard, Stafford ST16 9MN",
+    "value_gbp": 320000
+  },
+  "loan": {
+    "amount_gbp": 220000,
+    "product_rate_pct": 4.5,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 150
+  }
+}
