@@ -35,16 +35,24 @@ expected section reached when the ceiling was recorded, so any drop fails the te
 
 ## Findings
 
-**1. Contradiction-shaped queries near-miss `POL-EXC-01`.** The curated probe "employer letter
-says one salary, payslips say another - what then" ranks `POL-EXC-01` fourth (behind `POL-INC-01`,
-`POL-SE-01`, `POL-INC-02`), and the trace probe for the same situation reaches it at rank 3.
-At the tool's default k=3, a query phrased in income vocabulary therefore does not reliably
-return the contradictions-and-referral section - the rule a case like that actually needs. This is
-the same section the v1 citation dispute is about (`key_citations_present` fell to 0.96 on
-case-009, which cites `POL-STAT-01` where the label expects `POL-EXC-01`). Candidate fixes, in
-order of cost: raise k for contradiction-shaped queries, add a heading/section-title component to
-the embedding, or move to hybrid BM25 + vector retrieval. Recorded, not fixed - the same
-document-don't-fix discipline the evaluation protocol uses.
+**1. Contradiction-shaped queries near-miss `POL-EXC-01` at the default k - and the traces show it did not
+cost anything in the runs.** The curated probe "employer letter says one salary, payslips say another -
+what then" ranks `POL-EXC-01` fourth (behind `POL-INC-01`, `POL-SE-01`, `POL-INC-02`), and the trace probe
+for the same situation reaches it at rank 3 - both measured at the tool's default `k=3`. Two facts from the
+v2 traces keep that in proportion:
+
+- the model does not sit on the default: of 255 `search_policy` calls it chose `k=4` in 138, `k=3` in 112
+  (and 5 once, 2 once, 1 once), i.e. it raises the cut itself when a question feels ambiguous;
+- in case-009 (the one dossier whose `key_citations_present` is below 1.0) `POL-EXC-01` was returned by
+  **7 of 9** calls - including the call explicitly about expert referral - and in case-022 by **10 of 11**.
+  The agent had the section in context and still cited `POL-STAT-01`'s status rule instead of
+  `POL-EXC-01`'s referral rule.
+
+So the near-miss is a real property of the retriever at its default, and it is *not* the cause of the
+remaining citation gap: that is a citation-selection question, not a retrieval one, and it is the
+document-don't-fix case already recorded in the calibration adjudication. Fixes for the ranking itself (raise
+the default k, weight section headings, add a lexical leg) remain available and unapplied - the argument for
+applying them is robustness at a larger corpus, not an outcome measured here.
 
 **2. The similarity score cannot abstain.** Measured top-1 similarities: off-domain max 0.380
 ("complaints handling procedure and how to escalate to the financial ombudsman" - real vocabulary

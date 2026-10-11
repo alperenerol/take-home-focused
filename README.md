@@ -149,9 +149,11 @@ ranking benchmark.
   when no embedding key is set.
 - **Two findings it produced** (full detail in `evals/reports/retrieval-probes.md`): queries about
   contradictory income documents reach `POL-EXC-01` only at rank 4 (hand-written probe) and rank 3
-  (trace probe), so at the tool's default k=3 the referral rule is often not returned for exactly
-  the cases that need it; and the similarity score does not separate on-topic from off-topic
-  (off-domain max 0.380 against on-topic min 0.311), so no score threshold can abstain.
+  (trace probe) at the default `k=3` - though the traces show the model raises `k` itself in 141 of
+  255 calls and that `POL-EXC-01` was in context for 7 of the 9 calls in the one case whose citation
+  metric is below 1.0, so this is a retriever property, not the cause of that gap; and the
+  similarity score does not separate on-topic from off-topic (off-domain max 0.380 against on-topic
+  min 0.311), so no score threshold can abstain.
 - **Downstream**, the dossier-level evaluators carry the operational signal: `citations_valid`
   (every cited section id exists - a fabricated citation fails) and `key_citations_present` (the
   section the label expects is actually cited by the finished dossier).
@@ -294,13 +296,15 @@ well inside single-digit dollars on the chosen models.
   zero-infrastructure choice that keeps citations exact; a hosted store is the swap at
   larger scale. It is scored by a 28-probe recall@3 fence (0.967) and by citation-level
   evaluators, not by nDCG / precision@k - the reasoning is in "Retrieval evaluation" above.
-- The probe set surfaced a real retrieval limitation and left it visible: a query about
-  contradictory income documents reaches `POL-EXC-01` (contradictions, ambiguity and expert
-  referral) only at rank 3-4, so at the default k=3 the section carrying the referral rule is
-  often not returned for exactly the cases that need it. Candidate fixes are listed in
-  `evals/reports/retrieval-probes.md`; not fixed here, on the same document-don't-fix
-  discipline as the rest of the protocol. The other open gap (retrieval interference) is
-  stated in the same section.
+- The probe set surfaced a real retrieval limitation and measured it rather than asserting it: a
+  query about contradictory income documents reaches `POL-EXC-01` (contradictions, ambiguity and
+  expert referral) only at rank 3-4 at the tool's default `k=3`. It is not the cause of any failure
+  observed in the runs - the model raises `k` itself in 141 of 255 calls, and in the one case whose
+  `key_citations_present` sits below 1.0 the section was returned by 7 of its 9 calls and simply not
+  cited - so the fixes (raise the default `k`, weight section headings, add a lexical leg) are
+  recorded as robustness work for a larger corpus, not as a repair. Details in
+  `evals/reports/retrieval-probes.md`. The other open gap (retrieval interference) is stated in
+  the same section.
 
 ## Repository layout
 
