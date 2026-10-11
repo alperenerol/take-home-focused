@@ -133,6 +133,45 @@ present; schema valid (Pydantic); status match; missing-items set match; critica
 outcome match (fraction); required tool use (fraction); citation validity (every cited
 section id exists); key citations present; READY-without-missing guardrail.
 
+### Retrieval evaluation (and why there is no nDCG / recall@k)
+
+Retrieval is scored at both ends of the pipeline rather than as a ranking problem of its
+own:
+
+- Upstream, `tests/test_search_policy.py` holds ten labelled probes - a natural-language
+  query plus the section it must reach - and asserts the expected section is in the top 3
+  chunks returned (the tool's default `k`). That is recall@3 over a small hand-built golden
+  set: 10/10 today, run through `make test` (it needs an embedding key; the probe is
+  skipped without one).
+- Downstream, the dossier-level evaluators carry the signal that matters operationally:
+  `citations_valid` (every cited section id exists - a fabricated citation fails) and
+  `key_citations_present` (the section the label expects is actually cited by the finished
+  dossier).
+
+Standard IR metrics are deliberately absent, and the reason is the corpus rather than the
+effort:
+
+- the corpus is 12 sections, chunked 1:1 with section ids and searched at k=3, so
+  precision@3 is already bounded at 0.25 by arithmetic alone, before any model quality is
+  measured;
+- nDCG and MRR need graded relevance judgements over a result list; at 12 chunks almost
+  every query has exactly one relevant section, so nDCG@3 collapses into the hit test
+  above and reporting it would dress a single boolean in four decimals;
+- ranking above the cut is not where the risk is: retrieval is not the deliverable. The
+  agent reads the returned text and the artefact under evaluation is the dossier, so the
+  failure mode worth measuring is whether the *right section ends up cited* - which is what
+  `key_citations_present` measures.
+
+Known gap, stated rather than smoothed over: nothing measures retrieval *interference* -
+whether an irrelevant chunk that does get retrieved pollutes a downstream reasoning step.
+The adversarial slice places the attack in the evidence rather than in the corpus, and no
+hostile document was returned as policy, but that was established by inspecting the traces,
+not by a metric.
+
+If the corpus grew (hundreds of chunks, no 1:1 id-to-citation mapping), the swap is:
+graded golden queries scored with recall@k / MRR / nDCG@k as evaluators beside
+`citations_valid`, plus a re-ranker once k has to be larger than 3.
+
 ### LLM judge (groundedness)
 
 A Sol-class judge produces a structured verdict per case (grounded yes/no, 1-5 score,
@@ -248,7 +287,9 @@ well inside single-digit dollars on the chosen models.
   synthetic data).
 - Retrieval is an in-memory vector store over a 12-section corpus - a deliberate
   zero-infrastructure choice that keeps citations exact; a hosted store is the swap at
-  larger scale.
+  larger scale. It is scored by a recall@3 probe and by citation-level evaluators, not by
+  nDCG / precision@k - the reasoning is in "Retrieval evaluation" above, and the one open
+  gap (retrieval interference) is stated there.
 
 ## Repository layout
 
