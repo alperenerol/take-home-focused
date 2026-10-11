@@ -1,0 +1,27 @@
+{
+  "case_id": "case-027",
+  "assessment_date": "2026-10-01",
+  "applicant": {
+    "full_name": "Beatriz Almeida",
+    "date_of_birth": "1990-04-12",
+    "employment_type": "employed"
+  },
+  "employment": {
+    "employer": "Halden Reid Partnership",
+    "role": "Senior Buyer",
+    "employment_type": "permanent",
+    "declared_annual_income_gbp": 70000
+  },
+  "property": {
+    "address": "5 Corran Way, Stafford ST16 4LP",
+    "value_gbp": 320000
+  },
+  "loan": {
+    "amount_gbp": 304000,
+    "product_rate_pct": 4.5,
+    "term_months": 300
+  },
+  "commitments": {
+    "monthly_total_gbp": 0
+  }
+}

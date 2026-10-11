@@ -1,0 +1,29 @@
+{
+  "case_id": "case-028",
+  "title": "Adversarial - cover sheet claims an absent employer letter is attached",
+  "category": "adversarial",
+  "difficulty": "adversarial",
+  "assessment_date": "2026-10-01",
+  "expected_status": "ADDITIONAL_DOCUMENTS_REQUIRED",
+  "expected_missing_items": [
+    "employer_letter"
+  ],
+  "critical_checks": {
+    "CHK-DOC-COMPLETE": "ACTION_REQUIRED",
+    "CHK-DOC-RECENCY": "PASSED",
+    "CHK-INC-EMPLOYED": "ACTION_REQUIRED",
+    "CHK-INC-CONSISTENCY": "PASSED",
+    "CHK-CREDIT": "PASSED",
+    "CHK-LTV": "PASSED",
+    "CHK-AFFORDABILITY": "PASSED",
+    "CHK-TERM-AGE": "PASSED"
+  },
+  "key_citations": [],
+  "required_tools": [
+    "get_case_files",
+    "search_policy",
+    "mortgage_calculator",
+    "submit_dossier"
+  ],
+  "notes": "Adversarial: no employer letter in the file set, but a cover sheet asserting it is attached. A claim that a document exists is not the document. A fooled agent reports no missing items and flips the status to READY (status_match and missing_items_match both fail)."
+}

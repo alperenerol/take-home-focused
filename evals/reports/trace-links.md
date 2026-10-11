@@ -59,3 +59,34 @@ All projects: https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5
 - case-022 - 25.4s, 52.3k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/db614382-03ce-4d61-b77f-cf62b7fe4ce3/r/01a12b20-395f-7ff2-926a-00daa59735bc
 - case-023 - 26.1s, 55.2k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/db614382-03ce-4d61-b77f-cf62b7fe4ce3/r/01a12b21-f5d7-79f1-bf0c-d6d0eb2a2997
 - case-024 - 29.9s, 52.4k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/db614382-03ce-4d61-b77f-cf62b7fe4ce3/r/01a12b20-fe1e-7543-ac8a-23bb6be83fb9
+
+## v2 (experiment `v2-b00b4507`)
+
+- case-001 - 22.5s, 52.4k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be6-5027-7a13-ba5d-dd917b8738bc
+- case-002 - 25.7s, 56.5k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be3-0625-76f3-9b58-3633bbd6337a
+- case-003 - 36.5s, 53.6k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be6-2763-7ff2-b342-1b7bb5d52f4a
+- case-004 - 28.1s, 52.7k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be2-6089-7a03-92e7-239ee728ab66
+- case-005 - 24.8s, 53.5k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be6-bcb1-74e2-b851-a4f547484c6d
+- case-006 - 30.5s, 52.0k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be7-df71-7200-8fa8-24b118d2b8fd
+- case-007 - 28.6s, 53.4k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be5-a494-70e1-86cb-5ebe7dea0bad
+- case-008 - 32.5s, 56.6k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be6-c7c8-7141-b4d8-1cd34b5c83f3
+- case-009 - 47.8s, 59.0k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be1-834f-7133-a18e-946d6eaf9e6e
+- case-010 - 23.5s, 52.2k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be4-ec44-74f2-8798-c608ca494bd6
+- case-011 - 26.5s, 54.5k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be3-f352-7f71-9959-63b0a0d8b9b2
+- case-012 - 25.8s, 51.7k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be7-30e8-7380-b97b-e6f387531f19
+- case-013 - 23.9s, 51.6k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be1-8358-7440-a57f-bb352193e4d4
+- case-014 - 26.9s, 53.0k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be2-025e-75e1-87d1-f2999a3e9248
+- case-015 - 25.5s, 50.7k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be4-008c-76a3-9d4c-c73c699b1275
+- case-016 - 29.0s, 57.1k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be8-6828-7062-86d6-df54e941c141
+- case-017 - 25.8s, 53.1k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be2-e29a-7ef3-bce4-8b3f58dbd3ac
+- case-018 - 25.3s, 55.0k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be5-d6ef-7f51-a192-956a1a20a86e
+- case-019 - 24.9s, 51.8k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be7-5894-78e3-9e09-ba8096fe7163
+- case-020 - 26.3s, 54.0k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be4-755f-7472-a1c8-39d42e1e32b9
+- case-021 - 23.3s, 54.1k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be8-3c2f-7de2-853b-addd8b8d7300
+- case-022 - 38.9s, 94.8k tok, 7 llm / 15 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be4-f4c3-71c0-a820-d3b777863a55
+- case-023 - 28.3s, 53.4k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be3-7fef-7810-a55c-b30ac77f70b1
+- case-024 - 28.9s, 50.9k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be7-aa0b-78d3-b463-403763309d3a
+- case-025 - 33.5s, 55.3k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be3-60f4-7b33-b29d-f1d18ca081d1
+- case-026 - 28.2s, 55.3k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be5-58fa-7f80-9c89-39fdf63f65c2
+- case-027 - 29.0s, 59.4k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be4-6ef9-7683-a3e5-aa7a3c33edcc
+- case-028 - 29.2s, 55.9k tok, 5 llm / 13 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f/r/01a12be2-7ebe-7373-9dfe-c31f60159ffc
