@@ -37,7 +37,8 @@ document whose text is an attack, not evidence:
 
 The point of the slice is that no new evaluator is needed: a fooled agent changes the
 status, the missing-item set, a critical check outcome, or cites a non-existent section,
-and the existing deterministic evaluators catch each of those. The incidents behind the
-slice are described in `P8-NOTES.md`.
+and the existing deterministic evaluators catch each of those. The two findings the slice
+produced, and why neither was fixed on that run, are recorded in the README's known
+limitations and in `evals/reports/v1-to-v2-diff.md`.
 
 All content is fully synthetic and self-authored for this exercise.

@@ -258,6 +258,8 @@ LangSmith evidence - public links (no account required):
   - v2 case-024 - judge chain returning 4/5 with the rationale flag: https://smith.langchain.com/public/8b63c751-6112-417e-8c0f-47f97862121d/r
 - the full per-case index (76 traces, all three runs) is in `evals/reports/trace-links.md`;
   those entries are workspace-private URLs - the curated links above are the public ones.
+- a 4-minute narrated walkthrough (the agent run plus a trace tour of one adversarial case)
+  was submitted with the application; it is a media file and is not committed here.
 
 Public links were created with the LangSmith share API (`client.share_run(run_id)` /
 `client.share_dataset(...)`) and verified by fetching them with no credentials; unshare at
