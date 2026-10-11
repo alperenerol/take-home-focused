@@ -103,6 +103,15 @@ formatting nits - its signal is best read as "evidence trail fully supported" ra
 than outcome correctness. The v1 citation-discipline fixes target exactly that gap; on
 014/019/023 a judge flip in v1 removes a strictness dispute, not a real error.
 
+**Correction (2026-10-11).** The last clause above is wrong as written, and is left in place
+rather than edited so the change of reading is visible. Each of the three items was
+subsequently adjudicated against the corpus in `evals/reports/calibration-adjudication.md`:
+case-014 and case-019 were **real** citation-scope defects - the dossier escalated to expert
+review without citing the section that carries the escalation rule (POL-STAT-01 R6), so the
+outcome was right and the trail incomplete - and case-023 was a policy under-specification
+(POL-AGE-01 defines no decimal-years convention), not an agent error. So the strictness was
+pointing at something real in two of three, not at presentation.
+
 ## Open items
 
 - Corpus limitation to carry into the final write-up: POL-AFF-01 failure handling (F3)

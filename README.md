@@ -140,10 +140,16 @@ unsupported claims, short comment). The judge sees only what the agent saw plus 
 cited policy sections - never outside knowledge - so "grounded" means "the evidence
 trail supports the reasoning".
 
-Calibration: 10 items were labelled blind by a human and compared - agreement 7/10
-(70%), mean score delta 0.50. The three disagreements were citation-scope/presentation
-cases where the judge applies a stricter evidence-trail standard than the human; the
-result and interpretation are committed in `evals/reports/`.
+Calibration: 10 items were labelled blind by a human and compared - agreement 7/10 (70%),
+mean absolute score delta 0.50. All three disagreements run one way (the judge stricter,
+never the reverse), and each was adjudicated item by item against the corpus
+(`evals/reports/calibration-adjudication.md`): two (case-014, case-019) were real
+citation-scope gaps - the dossier escalated to expert review without citing the section that
+carries the escalation rule, so the outcome was right and the trail incomplete; one
+(case-023) was a policy under-specification rather than an agent error - POL-AGE-01 defines
+the age comparison in years and days and no decimal convention, so 63.23 and 63.24 are both
+defensible. All three were addressed at the trail level rather than by adjusting the judge,
+and all three cleared in v1.
 
 ### Protocol (before/after)
 
@@ -200,8 +206,9 @@ well inside single-digit dollars on the chosen models.
 - Corpus corners: POL-AFF-01's failure handling and the credit-referral basis are
   implicit rather than explicitly stated in the corpus; the review documents how v1
   handles them (states the derivation basis in the rationale and cites POL-STAT-01).
-- Judge vs human strictness on citation completeness is known, measured (70% agreement)
-  and documented - not hidden.
+- Judge vs human strictness is known, measured (70% agreement) and adjudicated item by item
+  (`evals/reports/calibration-adjudication.md`): two disagreements were real citation-scope
+  gaps, one a policy under-specification - not hidden.
 - case-009's citation-choice variance (above) is left visible in the diff.
 - Adversarial slice (v2): all four traps were resisted, but case-028 scored 7/8 on critical
   checks - it reported the missing employer letter on `CHK-DOC-RECENCY` (ACTION_REQUIRED)
