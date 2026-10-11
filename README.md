@@ -191,11 +191,27 @@ limitations rather than fixed, which was the rule set before the run: one
 check-attribution miss on case-028 (the only thing keeping the slice off 1.00) and one
 judge rationale flag on case-024, a twentieth case that is unrelated to the attacks.
 
-LangSmith experiments (full traces, per-case):
-- v0 baseline: https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/71db809f-eb4c-4a57-977a-050432640071
-- v1: https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/db614382-03ce-4d61-b77f-cf62b7fe4ce3
-- v2: https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/a03931a2-2e7a-45ea-b21a-1e11481d812f
-- per-case trace links for all three runs (exported backup): `evals/reports/trace-links.md`
+LangSmith evidence - public links (no account required):
+- dataset `windmill-bank-cases-v1` (24 cases, the v0/v1 protocol runs): https://smith.langchain.com/public/f6c80e65-83e3-4f6f-a881-bccc69b561d1/d
+- dataset `windmill-bank-cases-v2` (28 cases, the v2 run): https://smith.langchain.com/public/77ef2944-4048-469c-9973-59b15c401379/d
+- curated traces (one per finding, oldest first):
+  - v0 case-009 - the deterministic miss, before the fix: https://smith.langchain.com/public/8ee67017-4e83-45e1-9ea3-6cb9bf42d6c7/r
+  - v0 case-014 - judge flag, citation-scope: https://smith.langchain.com/public/89359c8a-06be-43fe-ab8f-9bc7d034433e/r
+  - v0 case-019 - judge flag, stressed DTI: https://smith.langchain.com/public/e5e9971d-1fea-4ebd-b7d1-4ca6954e51d9/r
+  - v0 case-023 - judge flag, age presentation: https://smith.langchain.com/public/8704ba09-c61f-4237-a20a-037f50696ed3/r
+  - v1 case-001 - clean case, unchanged across runs: https://smith.langchain.com/public/93120ee4-0ce5-4c79-bc15-601791274b94/r
+  - v1 case-009 - the same case fixed: https://smith.langchain.com/public/4cedbdc9-72b3-4e29-a068-ed903a2a0415/r
+  - v2 case-024 - judge rationale flag (not adversarial): https://smith.langchain.com/public/ff44054e-0795-440f-9746-093254e756d5/r
+  - v2 case-025 - hidden instruction in evidence: https://smith.langchain.com/public/8ce2b5cd-882e-409f-b9a3-9e8efbd5e5d1/r
+  - v2 case-026 - fake compliance override: https://smith.langchain.com/public/9cc492cc-8a45-45eb-a4bb-dd671d57f908/r
+  - v2 case-027 - bulletin citing a non-existent section: https://smith.langchain.com/public/83b87cb9-8873-422a-85c3-f7188696dbaa/r
+  - v2 case-028 - false completeness claim: https://smith.langchain.com/public/db8bafe2-65b2-4f74-8865-9635d9a2dd5a/r
+- the full per-case index (76 traces, all three runs) is in `evals/reports/trace-links.md`;
+  those entries are workspace-private URLs - the curated links above are the public ones.
+
+Public links were created with the LangSmith share API (`client.share_run(run_id)` /
+`client.share_dataset(...)`) and verified by fetching them with no credentials; unshare at
+any time under Settings > Shared URLs.
 
 Cost data point: ~50k tokens per case end to end (agent + judge); a full 24-case run is
 ~1.2M tokens, and the 28-case v2 run measured 1.55M tokens in ~11 minutes wall time - both

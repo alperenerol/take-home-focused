@@ -6,6 +6,28 @@ retrieved policy text and the case-service interaction).
 
 All projects: https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects
 
+## Public share links (reviewer-accessible, no account)
+
+Created with `client.share_run(run_id)` / `client.share_dataset(...)` and verified by fetching
+with no credentials. The `/o/...` URLs below are workspace-private; only these are public.
+
+Datasets (each carries its experiment runs and evaluator feedback):
+- windmill-bank-cases-v1 (24 cases; v0 and v1 protocol runs) - https://smith.langchain.com/public/f6c80e65-83e3-4f6f-a881-bccc69b561d1/d
+- windmill-bank-cases-v2 (28 cases; v2 run) - https://smith.langchain.com/public/77ef2944-4048-469c-9973-59b15c401379/d
+
+Curated traces:
+- v0 case-009 (deterministic miss) - https://smith.langchain.com/public/8ee67017-4e83-45e1-9ea3-6cb9bf42d6c7/r
+- v0 case-014 (judge flag, citation-scope) - https://smith.langchain.com/public/89359c8a-06be-43fe-ab8f-9bc7d034433e/r
+- v0 case-019 (judge flag, stressed DTI) - https://smith.langchain.com/public/e5e9971d-1fea-4ebd-b7d1-4ca6954e51d9/r
+- v0 case-023 (judge flag, age presentation) - https://smith.langchain.com/public/8704ba09-c61f-4237-a20a-037f50696ed3/r
+- v1 case-001 (clean, unchanged) - https://smith.langchain.com/public/93120ee4-0ce5-4c79-bc15-601791274b94/r
+- v1 case-009 (miss fixed) - https://smith.langchain.com/public/4cedbdc9-72b3-4e29-a068-ed903a2a0415/r
+- v2 case-024 (judge rationale flag) - https://smith.langchain.com/public/ff44054e-0795-440f-9746-093254e756d5/r
+- v2 case-025 (hidden instruction) - https://smith.langchain.com/public/8ce2b5cd-882e-409f-b9a3-9e8efbd5e5d1/r
+- v2 case-026 (fake compliance override) - https://smith.langchain.com/public/9cc492cc-8a45-45eb-a4bb-dd671d57f908/r
+- v2 case-027 (fabricated policy section) - https://smith.langchain.com/public/83b87cb9-8873-422a-85c3-f7188696dbaa/r
+- v2 case-028 (false completeness claim) - https://smith.langchain.com/public/db8bafe2-65b2-4f74-8865-9635d9a2dd5a/r
+
 ## baseline-v0 (experiment `baseline-v0-3bd01f31`)
 
 - case-001 - 20.9s, 47.9k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/71db809f-eb4c-4a57-977a-050432640071/r/01a12199-f4e4-7420-8fe9-509df31894dc
