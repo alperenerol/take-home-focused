@@ -206,6 +206,10 @@ LangSmith evidence - public links (no account required):
   - v2 case-026 - fake compliance override: https://smith.langchain.com/public/9cc492cc-8a45-45eb-a4bb-dd671d57f908/r
   - v2 case-027 - bulletin citing a non-existent section: https://smith.langchain.com/public/83b87cb9-8873-422a-85c3-f7188696dbaa/r
   - v2 case-028 - false completeness claim: https://smith.langchain.com/public/db8bafe2-65b2-4f74-8865-9635d9a2dd5a/r
+- evaluator traces (how a case is actually scored):
+  - v2 case-016 - judge chain, 5/5 grounded: https://smith.langchain.com/public/9a37712f-d0a8-4455-8b81-9fff82764b69/r
+  - v2 case-016 - the deterministic evaluator group (nine code evaluators): https://smith.langchain.com/public/533c0850-38f5-4a38-8a81-e3302e2fdaeb/r
+  - v2 case-024 - judge chain returning 4/5 with the rationale flag: https://smith.langchain.com/public/8b63c751-6112-417e-8c0f-47f97862121d/r
 - the full per-case index (76 traces, all three runs) is in `evals/reports/trace-links.md`;
   those entries are workspace-private URLs - the curated links above are the public ones.
 

@@ -28,6 +28,14 @@ Curated traces:
 - v2 case-027 (fabricated policy section) - https://smith.langchain.com/public/83b87cb9-8873-422a-85c3-f7188696dbaa/r
 - v2 case-028 (false completeness claim) - https://smith.langchain.com/public/db8bafe2-65b2-4f74-8865-9635d9a2dd5a/r
 
+Evaluator traces (the scoring machinery itself):
+- v2 case-016 judge chain (5/5 grounded) - https://smith.langchain.com/public/9a37712f-d0a8-4455-8b81-9fff82764b69/r
+- v2 case-016 deterministic evaluator group - https://smith.langchain.com/public/533c0850-38f5-4a38-8a81-e3302e2fdaeb/r
+- v2 case-024 judge chain (4/5, rationale flag) - https://smith.langchain.com/public/8b63c751-6112-417e-8c0f-47f97862121d/r
+
+Note: evaluator runs live in their own project, so a dataset token does not reach them -
+each needs its own share link (as above).
+
 ## baseline-v0 (experiment `baseline-v0-3bd01f31`)
 
 - case-001 - 20.9s, 47.9k tok, 5 llm / 12 tool calls - https://smith.langchain.com/o/3e33e379-0c3c-4841-bb78-fe0b2680e7f5/projects/p/71db809f-eb4c-4a57-977a-050432640071/r/01a12199-f4e4-7420-8fe9-509df31894dc
