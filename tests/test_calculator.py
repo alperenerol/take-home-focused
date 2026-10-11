@@ -84,6 +84,7 @@ def test_tool_case_016_tightened_limit():
     assert out["stressed_dti_pass"] is False
     assert out["income_variance_pct"] == "0.00"
     assert out["term_age_within_maximum"] is True
+    assert out["term_end_age_years_and_days"] == "68 years and 48 days"
     assert "POL-AFF-01" in out["policy_refs"]
 
 
@@ -125,3 +126,14 @@ def test_tool_without_income_omits_affordability():
     assert "stressed_dti_pct" not in out
     assert out["loan_to_value_pct"] == "68.75"
     assert out["product_monthly_payment_gbp"] == "1222.83"  # still computable
+
+
+def test_term_end_age_years_days_convention():
+    # case-001: dob 1990-04-12, assessment 2026-10-01, 300 months -> end 2051-10-01
+    assert calc.term_end_age_years_days("2026-10-01", 300, "1990-04-12") == "61 years and 172 days"
+    # case-021: end 2037-10-01 for dob 1962-03-15 -> beyond 75 years and 0 days
+    assert calc.term_end_age_years_days("2026-10-01", 132, "1962-03-15") == "75 years and 200 days"
+    # exactly on the 75th birthday (POL-AGE-01 R1: passes at 75 years and 0 days)
+    assert calc.term_end_age_years_days("2026-10-01", 396, "1984-10-01") == "75 years and 0 days"
+    # 29 February dob on a non-leap anchor year falls back to 28 February
+    assert calc.term_end_age_years_days("2024-10-01", 5, "2000-02-29") == "25 years and 1 day"

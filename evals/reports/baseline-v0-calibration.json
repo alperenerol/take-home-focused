@@ -1,0 +1,88 @@
+{
+  "run_id": "baseline-v0",
+  "labelled": 10,
+  "agreement": 0.7,
+  "mean_abs_score_delta": 0.5,
+  "items": [
+    {
+      "case_id": "case-009",
+      "judge_grounded": "no",
+      "user_grounded": "no",
+      "judge_score": 4,
+      "user_score": 2,
+      "agree": true
+    },
+    {
+      "case_id": "case-014",
+      "judge_grounded": "no",
+      "user_grounded": "yes",
+      "judge_score": 4,
+      "user_score": 5,
+      "agree": false
+    },
+    {
+      "case_id": "case-019",
+      "judge_grounded": "no",
+      "user_grounded": "yes",
+      "judge_score": 4,
+      "user_score": 5,
+      "agree": false
+    },
+    {
+      "case_id": "case-023",
+      "judge_grounded": "no",
+      "user_grounded": "yes",
+      "judge_score": 4,
+      "user_score": 5,
+      "agree": false
+    },
+    {
+      "case_id": "case-001",
+      "judge_grounded": "yes",
+      "user_grounded": "yes",
+      "judge_score": 5,
+      "user_score": 5,
+      "agree": true
+    },
+    {
+      "case_id": "case-005",
+      "judge_grounded": "yes",
+      "user_grounded": "yes",
+      "judge_score": 5,
+      "user_score": 5,
+      "agree": true
+    },
+    {
+      "case_id": "case-003",
+      "judge_grounded": "yes",
+      "user_grounded": "yes",
+      "judge_score": 5,
+      "user_score": 5,
+      "agree": true
+    },
+    {
+      "case_id": "case-002",
+      "judge_grounded": "yes",
+      "user_grounded": "yes",
+      "judge_score": 5,
+      "user_score": 5,
+      "agree": true
+    },
+    {
+      "case_id": "case-006",
+      "judge_grounded": "yes",
+      "user_grounded": "yes",
+      "judge_score": 5,
+      "user_score": 5,
+      "agree": true
+    },
+    {
+      "case_id": "case-004",
+      "judge_grounded": "yes",
+      "user_grounded": "yes",
+      "judge_score": 5,
+      "user_score": 5,
+      "agree": true
+    }
+  ]
+}
