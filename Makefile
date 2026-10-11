@@ -6,7 +6,10 @@ VENV := .venv
 PY := $(VENV)/bin/python
 PIP := $(VENV)/bin/pip
 
-.PHONY: setup test generate-cases verify-labels run upload-dataset eval clean
+.PHONY: help setup test generate-cases verify-labels run upload-dataset eval clean
+
+help: ## List available targets
+	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-16s %s\n", $$1, $$2}'
 
 setup: ## Create the virtualenv and install pinned dependencies
 	$(PYTHON) -m venv $(VENV)
