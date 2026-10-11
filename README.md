@@ -41,6 +41,28 @@ CLI --> Agent (LangChain create_agent - ReAct loop over LangGraph)
                 +-- submit_dossier(case_id, dossier)   <- the trusted action
 ```
 
+```mermaid
+flowchart LR
+    CLI["CLI"] --> AGENT["Agent<br/>LangChain <code>create_agent</code><br/>ReAct loop over LangGraph"]
+
+    AGENT --> SP["<b>search_policy</b> (native)<br/>RAG over the 12-section<br/>policy corpus"]
+    AGENT --> MC["<b>mortgage_calculator</b> (native)<br/>deterministic LTV / DTI /<br/>stress math"]
+    AGENT --> CS["<b>case-service</b> (MCP)<br/>FastMCP over stdio"]
+
+    SP -.-> CORPUS[("Policy corpus<br/>12 sections,<br/>1 section = 1 citation")]
+    CS --> GCF["get_case_files(case_id)"]
+    CS --> SD["submit_dossier(case_id, dossier)<br/><i>the trusted action</i>"]
+    SD --> VALID{"validated server-side<br/>shape / identity / enums"}
+    VALID -- ok --> STORE[("Dossier stored")]
+    VALID -- invalid --> REJECT["Rejected"]
+
+    AGENT -. "every step traced" .-> LS[("LangSmith")]
+    CS -. "MCP call traced" .-> LS
+```
+
+Both views are provided: the ASCII sketch travels anywhere (plain text, diffs, terminals)
+and the Mermaid block renders natively on GitHub.
+
 - The model drives the loop: it decides which policy to retrieve, when to compute, and
   when it is ready to submit.
 - The case-service is a separate process - a small but real trust boundary: reads and
